@@ -4,11 +4,11 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule} from '@angular/forms';
-import { UserComponent } from './User/user.component';
+import { LoginComponent } from './Login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
