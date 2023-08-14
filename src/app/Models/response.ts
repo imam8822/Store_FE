@@ -1,5 +1,5 @@
 export class Response{
-    isSuccess = "";
+    isSuccess :boolean =false;
     message = "";
     errors : any
     expiryDate :any

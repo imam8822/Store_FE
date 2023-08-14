@@ -1,3 +1,1 @@
-.topMargin{
-    margin-top: 5%;
-}
+@import '~ngx-toastr/toastr';
