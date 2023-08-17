@@ -1,14 +1,8 @@
-.btnProfile{
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    background: deepskyblue;
-    border: none;
-    color: white;
+.logo{
+    padding: 0px 5px;
+    font-size: 30px;
 }
 
-.bgNavbar{
-    border: 2px solid;
-    padding:1px;
-    border-radius: 20px;
+.btnProfile{
+    border-radius: 50%;
 }

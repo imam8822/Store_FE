@@ -12,7 +12,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './Home/home/home.component';
 import { NavbarComponent } from './Navigation/navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
- 
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -32,6 +35,10 @@ import { RegisterComponent } from './register/register.component';
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), 
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
