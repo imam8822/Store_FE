@@ -1,27 +1,3 @@
-
-    .social-container a {
-        border: 1px solid #DDDDDD;
-        border-radius: 50%;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 5px;
-        text-decoration: none;
-        height: 40px;
-        width: 40px;
-    }
-
-    .topMargin{
-        margin-top: 5%;
-    }
-
-    .roundedButton{
-        width: 100%;
-        border-radius: 60px;
-    }
-
-
-    .linkBtn{
-        text-decoration: none;
-        cursor: pointer;
-    }
+.card-width{
+    width: 300px;
+}

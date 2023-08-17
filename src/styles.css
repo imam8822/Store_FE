@@ -2,3 +2,19 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.topMargin{
+    margin-top: 5%;
+}
+
+.roundedButton{
+    width: 100%;
+    border-radius: 60px;
+}
+
+
+.linkBtn{
+    text-decoration: none;
+    cursor: pointer;
+}
+
