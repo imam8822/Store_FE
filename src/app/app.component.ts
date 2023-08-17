@@ -15,30 +15,26 @@ export default class AppComponent implements OnInit {
   loginDTO = new Login();
   registerDTO = new Register();
   responseDTO = new Response();
-
-constructor(private autheService:AuthenticationService,private route:Router){}
+  isLoggedIn:boolean = false;
+constructor(private authService:AuthenticationService,private route:Router){}
 
 ngOnInit(): void {
-  if(!this.autheService.CheckLogin()){
-    this.route.navigateByUrl("login")
-  }
-  else{
-    this.route.navigateByUrl("home")
-  }
+  this.authService.isLoggedIn.subscribe(res=> this .isLoggedIn = res)
+  // this.isLoggedIn = this.authService.CheckLogin();
 }
 
 register(registerDTO:Register){
-  this.autheService.register(registerDTO).subscribe();
+  this.authService.register(registerDTO).subscribe();
 }
 
 Login(registerDTO:Login){
-  this.autheService.login(registerDTO).subscribe((responseDTO)=>{
+  this.authService.login(registerDTO).subscribe((responseDTO)=>{
     localStorage.setItem("Token",responseDTO.message);
   })
 }
 
   Weather(){
-    this.autheService.weatherForecast().subscribe((weatherData:any)=>{
+    this.authService.weatherForecast().subscribe((weatherData:any)=>{
       console.log(weatherData);
     })
   }

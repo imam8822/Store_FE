@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './Home/home/home.component';
 import { NavbarComponent } from './Navigation/navbar/navbar.component';
+import { RegisterComponent } from './register/register.component';
  
 
 
@@ -19,7 +20,8 @@ import { NavbarComponent } from './Navigation/navbar/navbar.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

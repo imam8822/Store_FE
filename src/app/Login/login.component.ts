@@ -7,7 +7,7 @@ import { Token } from '@angular/compiler';
 import { Response } from '../Models/response';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router'; 
-
+import { user } from '../Models/user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,10 +22,11 @@ constructor(private authService:AuthenticationService,private toast:ToastrServic
   loginDTO = new Login();
   response = new Response();
   loginForm = new FormGroup({
-    email : new FormControl("email",[Validators.required,Validators.email]),
-    password : new FormControl("password",[Validators.required,Validators.minLength(6)])
+  email : new FormControl("email",[Validators.required,Validators.email]),
+  password : new FormControl("password",[Validators.required,Validators.minLength(6)])
+  });
 
-  })
+  userDTO = new user()
 
   get Email (): FormControl {
     return this.loginForm.get("email") as FormControl;
@@ -44,7 +45,11 @@ constructor(private authService:AuthenticationService,private toast:ToastrServic
       if(response.isSuccess)
       {
           this.toast.success("Login Successful")
-          localStorage.setItem("Token",response.message);
+          debugger;
+          this.userDTO = JSON.parse(response.message);
+          localStorage.setItem("Token",this.userDTO.Token);
+          localStorage.setItem("Username",this.userDTO.FirstName);
+          this.authService.isLoggedIn.next(true);
           this.router.navigateByUrl("home")
       }
       else

@@ -8,11 +8,12 @@ import { AuthenticationService } from '../services/authentication.service';
 export class AuthGuard implements CanActivate {
 
   constructor(private authService:AuthenticationService){}
-
+  isLoggedIn : boolean = false;
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this.authService.CheckLogin();
+      this.authService.isLoggedIn.subscribe(res=>this.isLoggedIn = res);
+      return ( this.isLoggedIn || this.authService.CheckLogin());
   }
   
 }
