@@ -1,24 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, booleanAttribute } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NgForm } from '@angular/forms';
 import { AuthenticationService } from '../services/authentication.service';
 import { Login } from '../Models/login';
-import { Token } from '@angular/compiler';
 import { Response } from '../Models/response';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { user } from '../Models/user';
+import { user } from '../Models/user.model';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   constructor(
     private authService: AuthenticationService,
     private toast: ToastrService,
     private router: Router
-  ) {}
+  ) { 
+  }
+  ngOnInit(): void {
+    if(this.authService.CheckLogin()){
+      this.router.navigateByUrl('home');
+    }
+  }
   showLoading: boolean = false;
   loginDTO = new Login();
   response = new Response();
@@ -45,19 +49,13 @@ export class LoginComponent {
       this.showLoading = true;
       this.loginDTO.email = this.loginForm.value.email!;
       this.loginDTO.password = this.loginForm.value.password!;
-      this.authService.login(this.loginDTO).subscribe((response) => {
-        if (response.isSuccess) {
-          this.toast.success('Login Successful');
-          this.userDTO = JSON.parse(response.message);
-          localStorage.setItem('Token', this.userDTO.Token);
-          localStorage.setItem('Username', this.userDTO.FirstName);
-          this.authService.isLoggedIn.next(true);
-          this.router.navigateByUrl('home');
-        } else {
-          this.toast.error('Invalid User');
-        }
-      });
+      const result = this.authService.login(this.loginDTO);
+      if (result) {
+        this.toast.success('Login Successful');
+      }
+      debugger;
       this.showLoading = false;
     }
   }
+
 }

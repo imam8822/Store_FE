@@ -20,17 +20,7 @@ constructor(private authService:AuthenticationService,private route:Router){}
 
 ngOnInit(): void {
   this.authService.isLoggedIn.subscribe(res=> this .isLoggedIn = res)
-  // this.isLoggedIn = this.authService.CheckLogin();
-}
-
-register(registerDTO:Register){
-  this.authService.register(registerDTO).subscribe();
-}
-
-Login(registerDTO:Login){
-  this.authService.login(registerDTO).subscribe((responseDTO)=>{
-    localStorage.setItem("Token",responseDTO.message);
-  })
+  this.isLoggedIn = this.authService.CheckLogin();
 }
 
   Weather(){
