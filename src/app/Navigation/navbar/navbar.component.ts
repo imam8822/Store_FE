@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router'; 
-
+import { Input } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   isLoggedIn : boolean = false;
+  @Input() IsAdmin : boolean = false;
   username:string = "";
   constructor(private authService:AuthenticationService,private route:Router){}
   ngOnInit(): void {

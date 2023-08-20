@@ -19,6 +19,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ContactComponent } from './contact/contact.component';
+import { ProductComponent } from './product/product.component';
+import { GenerateBillComponent } from './generate-bill/generate-bill.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -27,8 +31,11 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     NavbarComponent,
     RegisterComponent,
-    ContactComponent
-  ],
+    ContactComponent,
+    ProductComponent,
+    GenerateBillComponent,
+    AdminDashboardComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,6 +54,7 @@ import { ContactComponent } from './contact/contact.component';
     MatIconModule,
     MatMenuModule,
     MatInputModule,
+    DataTablesModule,
     MatFormFieldModule
   ],
   providers: [],

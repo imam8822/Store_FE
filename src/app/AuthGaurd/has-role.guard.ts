@@ -14,7 +14,6 @@ export class hasRole  {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const res=  (this.authService.loggedInUser.Roles.includes(route.data['role']));
-      debugger;
       return (this.authService.loggedInUser.Roles.includes(route.data['role']));
   }
   
