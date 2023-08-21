@@ -11,7 +11,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of this.products">
+                    <tr *ngFor="let product of this.products" (click)="selectRow(product)">
                         <td>{{product.name}}</td>
                         <td>{{product.price}}</td>
                         <td>{{product.tnc}}</td>

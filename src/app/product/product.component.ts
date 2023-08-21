@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, IterableDiffers, OnInit } from '@angular/core';
 import { ProductService } from '../services/Product/product.service';
 import { Product } from '../Models/product';
 import { Subject } from 'rxjs';
@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
   dtOptions: DataTables.Settings = {};
 dtTrigger : Subject<any> = new Subject<any>();
+selectedRow :any;
   constructor(private _service: ProductService) { }
   ngOnInit(): void {
 
@@ -31,5 +32,11 @@ dtTrigger : Subject<any> = new Subject<any>();
       this.dtTrigger.next(null);
     });
   }
+ 
+  selectRow(item:any){
+    this.selectedRow = item;
+    console.log(item);
+  }
+
 
 }
