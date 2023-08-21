@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Register } from '../Models/register';
-import { AuthenticationService } from '../services/authentication.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Register } from 'src/app/Models/register';
 
 @Component({
   selector: 'app-register',

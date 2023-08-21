@@ -11,19 +11,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './Home/home/home.component';
 import { NavbarComponent } from './Navigation/navbar/navbar.component';
-import { RegisterComponent } from './register/register.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ContactComponent } from './contact/contact.component';
-import { ProductComponent } from './product/product.component';
-import { GenerateBillComponent } from './generate-bill/generate-bill.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DataTablesModule } from 'angular-datatables';
 import { ProductInfoPanelComponent } from './Components/Products/product-info-panel/product-info-panel.component';
+import { ProductComponent } from './Components/Products/product/product.component';
+import { ContactComponent } from './Components/contact/contact.component';
+import { GenerateBillComponent } from './Components/generate-bill/generate-bill.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 import { Component, IterableDiffers, OnInit } from '@angular/core';
-import { ProductService } from '../services/Product/product.service';
-import { Product } from '../Models/product';
 import { Subject } from 'rxjs';
+import { Product } from 'src/app/Models/product';
+import { ProductService } from 'src/app/services/Product/product.service';
 
 @Component({
   selector: 'app-product',
