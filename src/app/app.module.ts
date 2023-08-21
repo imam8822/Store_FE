@@ -23,6 +23,7 @@ import { ProductComponent } from './product/product.component';
 import { GenerateBillComponent } from './generate-bill/generate-bill.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DataTablesModule } from 'angular-datatables';
+import { ProductInfoPanelComponent } from './Components/Products/product-info-panel/product-info-panel.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DataTablesModule } from 'angular-datatables';
     ContactComponent,
     ProductComponent,
     GenerateBillComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ProductInfoPanelComponent
     ],
   imports: [
     BrowserModule,
