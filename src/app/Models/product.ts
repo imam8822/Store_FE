@@ -13,16 +13,16 @@ export class Product {
     public quantity: number;
     public category: any
     constructor(
-        id: number,
-        name: string,
-        price: number,
-        longDescription: string,
-        shortDescription: string,
-        categoryId: number,
-        quantity: number,
-        sku?: string | null,
-        salePrice?: number | null,
-        tnc?: string | null
+        id: number =0,
+        name: string ="",
+        price: number =0,
+        longDescription: string ="",
+        shortDescription: string = "",
+        categoryId: number = 0,
+        quantity: number = 0,
+        sku: string | null = null,
+        salePrice: number | null = null,
+        tnc: string | null = null
     ) {
         this.id = id;
         this.name = name;

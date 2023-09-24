@@ -1,0 +1,14 @@
+<h3>Add Edit Product</h3>
+
+<div class="d-flex">
+    <form class="w-100 m-3" [formGroup]="productForm" (ngSubmit)="createProduct()">
+
+        <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.dirty || name.touched) ">
+            Please enter name of Product
+        </div>
+        <div class="form-text text-danger flex-wrap"
+            *ngIf="name.errors?.['pattern'] && (name.dirty || name.touched) ">
+            Cannot contain numeric or alphanumeric value
+        </div>
+    </form>
+</div>

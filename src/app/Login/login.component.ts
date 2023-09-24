@@ -12,21 +12,20 @@ import { Subject } from 'rxjs';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private toast: ToastrService,
     private router: Router
-  ) { 
+  ) {
 
   }
   ngOnInit(): void {
-    if(this.authService.CheckLogin()){
+    if (this.authService.CheckLogin()) {
       this.router.navigateByUrl('home');
     }
   }
   loggedInUser: user = new user();
-  isLoggedIn = new Subject<boolean>();
   showLoading: boolean = false;
   loginDTO = new Login();
   response = new LoginResponse();
@@ -57,14 +56,14 @@ export class LoginComponent implements OnInit{
         this.response = res
         if (this.response.isSuccess) {
           localStorage.setItem('Token', this.response.message);
-          this.loggedInUser=  this.authService.getUser(this.response.message);
-          this.isLoggedIn.next(true);
-          debugger;
+          this.loggedInUser = this.authService.getUser(this.response.message);
+          this.authService.isLoggedIn.next(true);
           this.toast.success('Login Successful');
+          debugger;
           if (this.loggedInUser.Roles.includes('Admin')) {
             this.router.navigateByUrl('admin-dashboard');
           }
-          else{
+          else {
             this.router.navigateByUrl('home');
           }
         }

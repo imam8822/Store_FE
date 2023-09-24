@@ -1,7 +1,13 @@
 @import '~ngx-toastr/toastr';
 
+
+:root {
+    --primary-color: #3066BE; 
+    --text-color : white;
+  }
+  
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, sans-serif; }
 
 .topMargin{
     margin-top: 5%;
@@ -18,3 +24,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     cursor: pointer;
 }
 
+@media (max-width: 800px) {
+    .flex-container {
+      flex-direction: column;
+    }
+  }

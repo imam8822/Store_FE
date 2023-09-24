@@ -10,11 +10,14 @@ export class hasRole  {
 
   constructor(private authService:AuthenticationService){}
   isLoggedIn : boolean = false;
+  isAuthorized : boolean = false;
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const res=  (this.authService.loggedInUser.Roles.includes(route.data['role']));
-      return (this.authService.loggedInUser.Roles.includes(route.data['role']));
+      this.authService.isLoggedIn.subscribe(res=> {
+        this.isAuthorized = this.authService.loggedInUser.Roles.includes(route.data['role'])
+      })
+      return this.isAuthorized;
   }
   
 }

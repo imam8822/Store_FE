@@ -21,8 +21,6 @@ export class AuthenticationService {
   loggedInUser: user = new user();
   response = new LoginResponse();
   constructor(
-    private toast: ToastrService,
-    private router: Router,
     private http: HttpClient) {
     this.token = localStorage.getItem("Token")!;
     if (this.token != null || this.token != undefined) {
@@ -47,8 +45,14 @@ export class AuthenticationService {
       return false;
     }
   }
+
+  checkIsAdmin():boolean{
+    return this.loggedInUser.Roles.includes("Admin");
+  }
+
   getUser(token: string): user {
-    return JSON.parse(atob(token.split('.')[1])) as user;
+    this.loggedInUser =  JSON.parse(atob(token.split('.')[1])) as user;
+    return this.loggedInUser;
   }
 
   public weatherForecast(): Observable<any> {

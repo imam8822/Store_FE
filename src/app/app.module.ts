@@ -17,13 +17,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DataTablesModule } from 'angular-datatables';
-import { ProductInfoPanelComponent } from './Components/Products/product-info-panel/product-info-panel.component';
 import { ProductComponent } from './Components/Products/product/product.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { GenerateBillComponent } from './Components/generate-bill/generate-bill.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { ViewProductComponent } from './Components/Products/view-product/view-product.component';
+import { AddEditProductComponent } from './Components/Products/add-edit-product/add-edit-product.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RegisterComponent } from './Components/register/register.component';
     ProductComponent,
     GenerateBillComponent,
     AdminDashboardComponent,
-    ProductInfoPanelComponent
+    ViewProductComponent,
+    AddEditProductComponent,
     ],
   imports: [
     BrowserModule,
