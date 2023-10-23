@@ -13,7 +13,6 @@ export class AuthGuard  {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       this.authService.isLoggedIn.subscribe(res=>this.isLoggedIn = res);
-      console.log(this.isLoggedIn)
       return ( this.isLoggedIn || this.authService.CheckLogin());
   }
   

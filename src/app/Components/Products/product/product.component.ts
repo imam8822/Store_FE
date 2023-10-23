@@ -42,4 +42,9 @@ export class ProductComponent implements OnInit {
     this.router.navigateByUrl("view-product");
   }
 
+  addProduct() {
+    this.router.navigateByUrl("add-product");
+  }
+
+  
 }

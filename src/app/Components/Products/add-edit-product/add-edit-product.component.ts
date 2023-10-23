@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { Product } from 'src/app/Models/product';
 
 @Component({
@@ -12,7 +12,7 @@ export class AddEditProductComponent {
   productForm = new FormGroup({
     name: new FormControl('', [
       Validators.required,
-      Validators.pattern('^[A-Za-z]{1,10}$'),
+      Validators.pattern('^[a-zA-Z0-9 ]*$'),
     ]),
     price : new FormControl('',[
       Validators.required
@@ -32,7 +32,6 @@ export class AddEditProductComponent {
     ,quantity : new FormControl('',[
       Validators.required
     ]),
-
   });
 
   createProduct() {
@@ -63,4 +62,24 @@ export class AddEditProductComponent {
   get quantity(): FormControl {
     return this.productForm.get('quantity') as FormControl;
   }
+
+  selectedImage: string | ArrayBuffer | null |any = null;
+
+  onFileSelected(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const file = inputElement.files?.[0];
+
+    if (file) {
+      this.displaySelectedImage(file);
+    }
+  }
+
+  displaySelectedImage(file: File): void {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.selectedImage = e.target?.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
 }
